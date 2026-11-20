@@ -1,7 +1,7 @@
 # X-COM シリーズ 日本語化プロジェクト
 
 マイクロプローズの X-COM シリーズを日本語で遊べるようにする、非公式のファンメイド日本語化プロジェクトです。
-Steam で販売されている版を対象に、1990年代の作品から順に日本語化していきます。
+Steam で販売されている 5 作品（UFO ディフェンス、テラー・フロム・ザ・ディープ、アポカリプス、インターセプター、エンフォーサー）を日本語化しています。
 開発元・販売元とは関係ありません。
 
 - サイト（作品の紹介・入れ方）: https://higesho.github.io/xcom-ja/
@@ -16,7 +16,7 @@ Steam で販売されている版を対象に、1990年代の作品から順に�
 | X-COM: テラー・フロム・ザ・ディープ（X-COM: Terror from the Deep） | 公開中 | [XCOM_TFTD_JP.zip](https://github.com/higesho/xcom-ja/releases/tag/tftd-v1.0) |
 | X-COM: アポカリプス（X-COM: Apocalypse） | 公開中 | [XCOM_Apocalypse_JP.zip](https://github.com/higesho/xcom-ja/releases/tag/apoc-v1.0) |
 | X-COM: インターセプター（X-COM: Interceptor） | 公開中 | [XCOM_Interceptor_JP.zip](https://github.com/higesho/xcom-ja/releases/tag/intc-v1.0) |
-| X-COM: エンフォーサー（X-COM: Enforcer） | 予定 | |
+| X-COM: エンフォーサー（X-COM: Enforcer） | 公開中 | [XCOM_Enforcer_JP.zip](https://github.com/higesho/xcom-ja/releases/tag/enf-v1.0) |
 
 入れ方と外し方は、サイトの各作品のページをご覧ください。
 どのパッチも、ゲームのファイルを書き換えません。配布物には原作のプログラムやデータは入っていません。
@@ -29,4 +29,5 @@ Steam で販売されている版を対象に、1990年代の作品から順に�
 
 - 日本語の表示に、美咲フォント（門真なむ、自由に利用・再配布可）と東雲フォント 12・16 ドット（パブリックドメイン）を使っています。
 - インターセプターは Windows の「ＭＳ ゴシック」で表示します（フォントは配布物に入っていません）。
+- エンフォーサーは BIZ UDゴシック（Copyright 2022 The BIZ UDGothic Project Authors、SIL Open Font License 1.1）から作った字で表示します。
 - X-COM は Take-Two Interactive Software, Inc. の商標です。ゲームの画像・文章の権利は原作の権利者にあります。

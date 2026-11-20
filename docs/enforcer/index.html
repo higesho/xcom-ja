@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>X-COM: エンフォーサー 日本語化パッチ — X-COM シリーズ 日本語化プロジェクト</title>
+<meta name="description" content="Steam 版 X-COM: Enforcer を日本語で遊べるようにする、非公式のファンメイド日本語化パッチ。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="X-COM: エンフォーサー 日本語化パッチ">
+<meta property="og:description" content="Steam 版 X-COM: Enforcer を日本語で遊べるようにする、非公式のファンメイド日本語化パッチ。">
+<meta property="og:url" content="https://higesho.github.io/xcom-ja/enforcer/">
+<meta property="og:image" content="https://higesho.github.io/xcom-ja/enforcer/img/research.png">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="jpn" id="jpn"><div class="jpn-band"><a class="jpn-home" href="https://higesho.github.io/ja/">日本語化プロジェクト</a></div></header>
+<script src="https://higesho.github.io/ja/nav.js"></script>
+
+<main class="band">
+<section class="hero">
+<p class="sub">X-COM: Enforcer</p>
+<h1>X-COM: エンフォーサー 日本語化パッチ</h1>
+<p class="tag">Steam 版の「X-COM: Enforcer」を日本語で遊べるようにする、非公式のファンメイド日本語化パッチです。
+メニューやエンフォーサーの選択、研究（武器とパワーアップの強化）の画面、ステージの名前と目標、画面のメッセージ、オプションまで、ゲームの中の文章を日本語にしています。
+ゲームの System フォルダにファイルをひとつ置くだけで日本語になり、消せば英語に戻ります。</p>
+<p><a class="dl" href="https://github.com/higesho/xcom-ja/releases/tag/enf-v1.0">ダウンロード（GitHub）</a></p>
+</section>
+
+<div class="text">
+<h2>どんなゲーム？</h2>
+<p>X-COM: エンフォーサーは、2001年にインフォグラムズ（マイクロプローズ）が発売した X-COM シリーズの外伝で、Unreal エンジンを使ったアクション・シューティングです。</p>
+<p>異星人が地球の街を襲い、X-COM の科学者が作った戦闘ロボット「エンフォーサー」が出撃します。
+キャンプ場やボウリング場、港、空港、北極基地などで、セクトイドやミュートン、リーパーといったおなじみの異星人を倒していきます。</p>
+<p>敵を倒して集めたデータポイントで研究を進め、武器やパワーアップ、エンフォーサー自身の能力を強化できます。協力プレイや対戦のマルチプレイもあります。</p>
+</div>
+
+<h2>画面</h2>
+<div class="shots">
+  <figure><img src="img/title.png" alt="タイトル画面" loading="lazy"><figcaption>タイトル</figcaption></figure>
+  <figure><img src="img/menu.png" alt="メインメニュー" loading="lazy"><figcaption>メインメニュー</figcaption></figure>
+  <figure><img src="img/choose.png" alt="エンフォーサーの選択とメッセージの窓" loading="lazy"><figcaption>エンフォーサーの選択</figcaption></figure>
+  <figure><img src="img/research.png" alt="研究の画面。ブレードランチャーの強化の説明が日本語で出ている" loading="lazy"><figcaption>研究</figcaption></figure>
+  <figure><img src="img/briefing.png" alt="ステージの名前と目標の画面" loading="lazy"><figcaption>ステージの目標</figcaption></figure>
+  <figure><img src="img/game.png" alt="ゲーム中の画面。武器の名前が日本語で出ている" loading="lazy"><figcaption>ゲーム中</figcaption></figure>
+  <figure><img src="img/options.png" alt="オプションの映像の設定" loading="lazy"><figcaption>オプション</figcaption></figure>
+  <figure><img src="img/quit.png" alt="終了の確認の窓" loading="lazy"><figcaption>終了の確認</figcaption></figure>
+</div>
+
+<div class="text">
+<h2>入れ方</h2>
+<ol>
+<li>ダウンロードした <code>XCOM_Enforcer_JP.zip</code> の中の <code>winmm.dll</code> を、ゲームの <code>System</code> フォルダ（<code>XCom.exe</code> があるフォルダ）に置きます。Steam のライブラリでゲームを右クリックし、「管理」→「ローカルファイルを閲覧」で開いたフォルダの中の <code>System</code> です。</li>
+<li>いつもどおり Steam から起動します。</li>
+</ol>
+<p>ゲームのファイルは書き換えません。日本語の文章と字のファイルは <code>%LOCALAPPDATA%\XC_JP_ENF</code> に作られます。</p>
+
+<h2>外し方</h2>
+<ul>
+<li>ゲームの <code>System</code> フォルダから <code>winmm.dll</code> を消します。</li>
+</ul>
+
+<h2>遊ぶときの注意</h2>
+<ul>
+<li>ムービーと、絵として描かれた文字（「NAME」「SKILL」「EMPTY」「LOCKED」「DATA POINTS」など）は英語のままです。音声には字幕がありません。</li>
+<li>エンフォーサーの名前は英字で入力します。</li>
+<li>Steam 版の Unreal エンジン（バージョン 420）に合わせてあります。中身が違うときは日本語化せずに英語のまま動きます。</li>
+<li>ほかの X-COM の日本語化パッチとは別のファイルです。それぞれのゲームのフォルダに、それぞれの <code>winmm.dll</code> を置いてください。</li>
+</ul>
+
+<h2>ご意見・誤訳の報告</h2>
+<p>誤訳や不自然な訳に気づいたら、<a href="https://github.com/higesho/xcom-ja/issues">GitHub の Issues</a> で教えてください。</p>
+
+<h2>クレジット</h2>
+<ul>
+<li>日本語の表示に、BIZ UDゴシック（Copyright 2022 The BIZ UDGothic Project Authors、SIL Open Font License 1.1）から作った字を使っています。ライセンスは配布物の <code>OFL.txt</code> にあります。</li>
+<li>このパッチの使用は自己責任でお願いします。</li>
+<li>配布物には原作のプログラムやデータは入っていません。</li>
+</ul>
+</div>
+</main>
+
+<footer class="foot"><div class="band">
+  <p>非公式のファン翻訳です。開発元・販売元とは関係ありません。</p>
+  <p>X-COM は Take-Two Interactive Software, Inc. の商標です。ゲームの画像・文章の権利は原作の権利者にあります。</p>
+</div></footer>
+</body>
+</html>
