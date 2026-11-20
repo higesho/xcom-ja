@@ -14,7 +14,7 @@ Steam で販売されている版を対象に、1990年代の作品から順に�
 |---|---|---|
 | X-COM: UFO ディフェンス（X-COM: UFO Defense / UFO: Enemy Unknown） | 公開中 | [XCOM_UFODefense_JP.zip](https://github.com/higesho/xcom-ja/releases/tag/ufo-v1.0) |
 | X-COM: テラー・フロム・ザ・ディープ（X-COM: Terror from the Deep） | 公開中 | [XCOM_TFTD_JP.zip](https://github.com/higesho/xcom-ja/releases/tag/tftd-v1.0) |
-| X-COM: アポカリプス（X-COM: Apocalypse） | 予定 | |
+| X-COM: アポカリプス（X-COM: Apocalypse） | 公開中 | [XCOM_Apocalypse_JP.zip](https://github.com/higesho/xcom-ja/releases/tag/apoc-v1.0) |
 | X-COM: インターセプター（X-COM: Interceptor） | 予定 | |
 | X-COM: エンフォーサー（X-COM: Enforcer） | 予定 | |
 
@@ -27,5 +27,5 @@ Steam で販売されている版を対象に、1990年代の作品から順に�
 
 ## クレジット・権利
 
-- 日本語の表示に、美咲フォント（門真なむ、自由に利用・再配布可）と東雲フォント 12 ドット（パブリックドメイン）を使っています。
+- 日本語の表示に、美咲フォント（門真なむ、自由に利用・再配布可）と東雲フォント 12・16 ドット（パブリックドメイン）を使っています。
 - X-COM は Take-Two Interactive Software, Inc. の商標です。ゲームの画像・文章の権利は原作の権利者にあります。
