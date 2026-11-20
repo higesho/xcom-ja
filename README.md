@@ -13,7 +13,7 @@ Steam で販売されている版を対象に、1990年代の作品から順に�
 | 作品 | 状態 | ダウンロード |
 |---|---|---|
 | X-COM: UFO ディフェンス（X-COM: UFO Defense / UFO: Enemy Unknown） | 公開中 | [XCOM_UFODefense_JP.zip](https://github.com/higesho/xcom-ja/releases/tag/ufo-v1.0) |
-| X-COM: テラー・フロム・ザ・ディープ（X-COM: Terror from the Deep） | 予定 | |
+| X-COM: テラー・フロム・ザ・ディープ（X-COM: Terror from the Deep） | 公開中 | [XCOM_TFTD_JP.zip](https://github.com/higesho/xcom-ja/releases/tag/tftd-v1.0) |
 | X-COM: アポカリプス（X-COM: Apocalypse） | 予定 | |
 | X-COM: インターセプター（X-COM: Interceptor） | 予定 | |
 | X-COM: エンフォーサー（X-COM: Enforcer） | 予定 | |
