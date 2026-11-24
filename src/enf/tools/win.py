@@ -1,5 +1,5 @@
 # テスト用: Enforcer を窓で起動し、プロセスの窓だけを相手に撮影・操作する（前面の窓は使わない）
-#   python tools/win.py start [jp|en]   build/winmm.dll を System に置き、test/XCom.ini（窓モード）・test/User.ini で起動
+#   python tools/win.py start [jp|en]   build/test/winmm.dll（試験版。build.bat test で作る）を System に置き、test/XCom.ini（窓モード）・test/User.ini で起動
 #   python tools/win.py shot NAME       PrintWindow で capture/NAME.png
 #   python tools/win.py click X Y       窓の中の座標で押す（PostMessage）
 #   python tools/win.py key NAME..      キー（PostMessage。esc enter up down left right や英字）
@@ -66,7 +66,7 @@ def click(x, y):
 
 def start(variant):
     stop(quiet=True)
-    if variant != 'none': shutil.copy(os.path.join(ROOT, 'build', 'winmm.dll'), SYS)
+    if variant != 'none': shutil.copy(os.path.join(ROOT, 'build', 'test', 'winmm.dll'), SYS)
     open(os.path.join(SYS, 'steam_appid.txt'), 'w').write('7770')
     # テスト用の ini を毎回ゲームの ini から作り直す（窓モード。前の回が落ちていても Recovery Mode にならないように）
     t = open(os.path.join(ORIG, 'XCom.ini'), encoding='latin-1', newline='').read().replace('StartupFullscreen=True', 'StartupFullscreen=False')

@@ -141,7 +141,7 @@ def start(variant):
     # variant: jp（日本語）/ en（同じ DLL で英語のまま。XC_NOJP=1）。どちらもテスト機能（XC_TEST=1）付き
     dst = os.path.join(GAME, 'winmm.dll')
     if os.path.exists(dst): os.remove(dst)
-    shutil.copy(os.path.join(ROOT, 'build', 'winmm.dll'), dst)
+    shutil.copy(os.path.join(ROOT, 'build', 'test', 'winmm.dll'), dst)
     env = dict(os.environ); env["XC_TEST"] = "1"; env.setdefault("XC_LOG", "1")
     if variant == 'en': env["XC_NOJP"] = "1"
     exe = os.path.join(GAME, 'dosbox.exe')

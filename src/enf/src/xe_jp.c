@@ -17,6 +17,8 @@
 void proxy_init(void);
 
 static wchar_t g_dir[MAX_PATH];
+#ifdef XE_TEST
+/* 試験版だけ: 環境変数 XE_LOG があれば g_dir\log.txt に記録する */
 static FILE *g_log;
 static int g_logon;
 static CRITICAL_SECTION g_logcs;
@@ -33,6 +35,10 @@ static void dbg(const char *fmt, ...)
     if (g_log) { va_start(ap, fmt); vfprintf(g_log, fmt, ap); va_end(ap); fflush(g_log); }
     LeaveCriticalSection(&g_logcs);
 }
+#else
+#define g_logon 0
+#define dbg(...) ((void)0)
+#endif
 
 /* ------------------------------------------------------------ 関数の入口に jmp を書く（戻り口つき） */
 static void *hook_entry(uint8_t *p, int steal, const uint8_t *expect, void *to)
@@ -134,14 +140,21 @@ static HANDLE WINAPI my_cfw(LPCWSTR name, DWORD acc, DWORD share, LPSECURITY_ATT
 
 static void init(HMODULE self)
 {
-    wchar_t la[MAX_PATH], v[8];
+    wchar_t la[MAX_PATH];
+#ifdef XE_TEST
+    wchar_t v[8];
+#endif
     HMODULE kb;
+#ifdef XE_TEST
     InitializeCriticalSection(&g_logcs);
+#endif
     if (!GetEnvironmentVariableW(L"LOCALAPPDATA", la, MAX_PATH)) return;
     wsprintfW(g_dir, L"%s\\XC_JP_ENF", la);
     CreateDirectoryW(g_dir, NULL);
+#ifdef XE_TEST
     g_logon = GetEnvironmentVariableW(L"XE_LOG", v, 8) > 0;
-    if (GetEnvironmentVariableW(L"XE_NOJP", v, 8) > 0) return;
+    if (GetEnvironmentVariableW(L"XE_NOJP", v, 8) > 0) return;      /* テスト用: 英語のまま */
+#endif
     if (!load_blob(self)) { dbg("no patch data\n"); return; }
     kb = GetModuleHandleW(L"kernelbase.dll");
     k_cfw = (cfw_t)GetProcAddress(kb, "CreateFileW");

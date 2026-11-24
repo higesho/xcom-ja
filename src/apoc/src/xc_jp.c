@@ -18,10 +18,14 @@
 #include "resource.h"
 
 void proxy_init(void);
+#ifdef XC_TEST
 void testio_init(void);
 void testio_mouse(int x, int y);
+#endif
 
 static char g_dir[MAX_PATH];
+#ifdef XC_TEST
+/* 試験版だけ: 環境変数 XC_LOG があれば g_dir\log.txt に記録する */
 static FILE *g_log;
 static int g_logon;
 static void dbg(const char *fmt, ...)
@@ -39,6 +43,9 @@ static void dbg(const char *fmt, ...)
     va_end(ap);
     fflush(g_log);
 }
+#else
+#define dbg(...) ((void)0)
+#endif
 
 /* ------------------------------------------------ DOSBox 0.72（Steam 版、md5 cacb05c2）の中身 */
 #define A_CB_HANDLERS 0x6d1430u
@@ -608,14 +615,19 @@ static int hook_iat(void)
 
 static void init(HMODULE self)
 {
-    char la[MAX_PATH], v[8];
+    char la[MAX_PATH];
+#ifdef XC_TEST
+    char v[8];
+#endif
     HMODULE crt;
     InitializeCriticalSection(&g_cs);
     if (!GetEnvironmentVariableA("LOCALAPPDATA", la, MAX_PATH)) return;
     wsprintfA(g_dir, "%s\\XC_JP_APOC", la);
     CreateDirectoryA(g_dir, NULL);
+#ifdef XC_TEST
     g_logon = GetEnvironmentVariableA("XC_LOG", v, sizeof v) > 0;
     if (GetEnvironmentVariableA("XC_NOJP", v, sizeof v) > 0) return;      /* テスト用: 英語のまま */
+#endif
     if (!verify_dosbox()) { dbg("unknown DOSBox build\n"); return; }
     if (!load_blob(self)) { dbg("no patch data\n"); return; }
     crt = GetModuleHandleA("msvcrt.dll");
@@ -633,7 +645,9 @@ BOOL WINAPI DllMain(HINSTANCE h, DWORD reason, LPVOID r)
         DisableThreadLibraryCalls(h);
         proxy_init();
         init(h);
-        testio_init();
+#ifdef XC_TEST
+        testio_init();        /* 試験版だけ: tools/win.py との受け渡し（testio.c） */
+#endif
     }
     return TRUE;
 }

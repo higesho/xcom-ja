@@ -12,11 +12,11 @@ Steam で販売されている 5 作品（UFO ディフェンス、テラー・�
 
 | 作品 | 状態 | ダウンロード |
 |---|---|---|
-| X-COM: UFO ディフェンス（X-COM: UFO Defense / UFO: Enemy Unknown） | 公開中 | [XCOM_UFODefense_JP.zip](https://github.com/higesho/xcom-ja/releases/tag/ufo-v1.0) |
-| X-COM: テラー・フロム・ザ・ディープ（X-COM: Terror from the Deep） | 公開中 | [XCOM_TFTD_JP.zip](https://github.com/higesho/xcom-ja/releases/tag/tftd-v1.0) |
-| X-COM: アポカリプス（X-COM: Apocalypse） | 公開中 | [XCOM_Apocalypse_JP.zip](https://github.com/higesho/xcom-ja/releases/tag/apoc-v1.0) |
-| X-COM: インターセプター（X-COM: Interceptor） | 公開中 | [XCOM_Interceptor_JP.zip](https://github.com/higesho/xcom-ja/releases/tag/intc-v1.0) |
-| X-COM: エンフォーサー（X-COM: Enforcer） | 公開中 | [XCOM_Enforcer_JP.zip](https://github.com/higesho/xcom-ja/releases/tag/enf-v1.0) |
+| X-COM: UFO ディフェンス（X-COM: UFO Defense / UFO: Enemy Unknown） | 公開中 | [XCOM_UFODefense_JP.zip](https://github.com/higesho/xcom-ja/releases/tag/ufo-v1.1) |
+| X-COM: テラー・フロム・ザ・ディープ（X-COM: Terror from the Deep） | 公開中 | [XCOM_TFTD_JP.zip](https://github.com/higesho/xcom-ja/releases/tag/tftd-v1.1) |
+| X-COM: アポカリプス（X-COM: Apocalypse） | 公開中 | [XCOM_Apocalypse_JP.zip](https://github.com/higesho/xcom-ja/releases/tag/apoc-v1.1) |
+| X-COM: インターセプター（X-COM: Interceptor） | 公開中 | [XCOM_Interceptor_JP.zip](https://github.com/higesho/xcom-ja/releases/tag/intc-v1.1) |
+| X-COM: エンフォーサー（X-COM: Enforcer） | 公開中 | [XCOM_Enforcer_JP.zip](https://github.com/higesho/xcom-ja/releases/tag/enf-v1.1) |
 
 入れ方と外し方は、サイトの各作品のページをご覧ください。
 どのパッチも、ゲームのファイルを書き換えません。配布物には原作のプログラムやデータは入っていません。

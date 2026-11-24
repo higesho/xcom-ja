@@ -20,6 +20,8 @@
 void proxy_init(void);
 
 static char g_dir[MAX_PATH];
+#ifdef XI_TEST
+/* 試験版だけ: 環境変数 XI_LOG があれば g_dir\log.txt に記録する */
 static FILE *g_log;
 static int g_logon;
 static void dbg(const char *fmt, ...)
@@ -39,6 +41,10 @@ static void dbg(const char *fmt, ...)
     va_end(ap);
     fflush(g_log);
 }
+#else
+#define g_logon 0
+#define dbg(...) ((void)0)
+#endif
 
 /* ------------------------------------------------------- パッチデータ
  * 'XIJ1', 節の数, 節 {u8 種類, u32 長さ, 中身}
@@ -184,7 +190,9 @@ static BOOL WINAPI my_GetTextExtentPointA(HDC dc, LPCSTR s, int n, LPSIZE sz)
 }
 
 #include "fonthook.h"
+#ifdef XI_TEST
 #include "testio.h"
+#endif
 
 /* ------------------------------------------------------------ ファイル */
 static const char *base_name(const char *p)
@@ -248,6 +256,8 @@ static int hook(const char *dll, const char *fn, void *to)
     return 1;
 }
 
+#ifdef XI_TEST
+/* 試験版だけ: どこから描かれたかを記録するための差し替えと、落ちたときの記録 */
 static BOOL WINAPI my_TextOutA(HDC dc, int x, int y, LPCSTR s, int n)
 {
     wchar_t buf[4096]; int m, jp;
@@ -276,24 +286,34 @@ static LONG CALLBACK veh(EXCEPTION_POINTERS *e)
     }
     return EXCEPTION_CONTINUE_SEARCH;
 }
+#endif
 static void init(HMODULE self)
 {
-    char la[MAX_PATH], v[8];
+    char la[MAX_PATH];
+#ifdef XI_TEST
+    char v[8];
+#endif
     InitializeCriticalSection(&g_fcs);
     if (!GetEnvironmentVariableA("LOCALAPPDATA", la, MAX_PATH)) return;
     wsprintfA(g_dir, "%s\\XC_JP_INTC", la);
     CreateDirectoryA(g_dir, NULL);
+#ifdef XI_TEST
     g_logon = GetEnvironmentVariableA("XI_LOG", v, sizeof v) > 0;
     if (GetEnvironmentVariableA("XI_TEST", v, sizeof v) > 0) testio_init();
     if (GetEnvironmentVariableA("XI_NOJP", v, sizeof v) > 0) return;
+#endif
     if (!load_blob(self)) { dbg("no patch data\n"); return; }
     g_enabled = 1;
     hook("user32.dll", "DrawTextA", (void*)my_DrawTextA);
     hook("gdi32.dll", "GetTextExtentPointA", (void*)my_GetTextExtentPointA);
     hook("kernel32.dll", "CreateFileA", (void*)my_CreateFileA);
+#ifdef XI_TEST
     if (g_logon) { hook("gdi32.dll", "TextOutA", (void*)my_TextOutA); hook("gdi32.dll", "ExtTextOutA", (void*)my_ExtTextOutA); }
+#endif
     dbg("X-COM Interceptor JP patch active, blob %08X\n", g_blob_crc);
+#ifdef XI_TEST
     if (g_logon) AddVectoredExceptionHandler(1, veh);
+#endif
     hook_game();
 }
 

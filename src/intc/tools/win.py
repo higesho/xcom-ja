@@ -1,5 +1,5 @@
 # テスト用: Interceptor を窓（cnc-ddraw）で起動し、プロセスの窓だけを相手に撮影・操作する（前面の窓は使わない）
-#   python tools/win.py start [jp|en]    ddraw.dll/ddraw.ini（テスト用）と build/winmm.dll をゲームのフォルダに置いて起動
+#   python tools/win.py start [jp|en]    ddraw.dll/ddraw.ini（テスト用）と build/test/winmm.dll（試験版。build.bat test で作る）をゲームのフォルダに置いて起動
 #   python tools/win.py shot NAME         PrintWindow で capture/NAME.png
 #   python tools/win.py click X Y [right] ゲームの座標（640x480）で押す（DLL のテスト機能が DirectInput に入れる）
 #   python tools/win.py key NAME..        キー（DLL のテスト機能）
@@ -71,7 +71,7 @@ def start(variant):
         p = os.path.join(GAME, f)
         if os.path.exists(p): os.remove(p)
     shutil.copy(os.path.join(ROOT, 'test', 'ddraw.dll'), GAME); shutil.copy(os.path.join(ROOT, 'test', 'ddraw.ini'), GAME)
-    if variant != 'none' and os.path.exists(os.path.join(ROOT, 'build', 'winmm.dll')): shutil.copy(os.path.join(ROOT, 'build', 'winmm.dll'), GAME)
+    if variant != 'none' and os.path.exists(os.path.join(ROOT, 'build', 'test', 'winmm.dll')): shutil.copy(os.path.join(ROOT, 'build', 'test', 'winmm.dll'), GAME)
     env = dict(os.environ); env['XI_TEST'] = '1'; env.setdefault('XI_LOG', '1')
     if variant == 'en': env['XI_NOJP'] = '1'
     p = subprocess.Popen([os.path.join(GAME, 'Interceptor.exe')], cwd=GAME, env=env)
